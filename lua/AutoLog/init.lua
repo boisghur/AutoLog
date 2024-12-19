@@ -10,12 +10,14 @@ M.setup = function()
   utils.ensure_directory()
 
   local timer = vim.uv.new_timer()
-
+  local projects = {}
   -- Timer setup to run every 30 minutes
   timer:start(
     config.timer_interval,
     config.timer_interval,
     vim.schedule_wrap(function()
+      table.insert(projects, summary.get_project_name())
+
       -- Create the summary
       local activity_summary = summary.create_summary(projects)
 

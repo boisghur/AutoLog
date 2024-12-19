@@ -1,5 +1,5 @@
 local M = {}
-local config = AutoLog.config
+local config = require("AutoLog.config")
 
 -- Ensure the necessary directory exists
 M.ensure_directory = function()

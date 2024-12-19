@@ -1,7 +1,5 @@
 local M = {}
 
-local projects = {}
-
 M.get_project_name = function()
   local project_name = ""
 
@@ -26,8 +24,6 @@ end
 
 -- Create a log entry template
 M.create_summary = function(projects)
-  table.insert(projects, summary.get_project_name())
-
   local summary = "# Github Activity Monitor\n\n"
   summary = summary .. "## Projects worked on in the last 30 minutes:\n\n"
 
