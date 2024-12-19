@@ -2,6 +2,11 @@ local M = {}
 
 local projects = {}
 
+local repo_dir = vim.fn.expand("~/.config/GithubActivityMon")
+if vim.fn.isdirectory(repo_dir) == 0 then
+  vim.fn.mkdir(repo_dir, "p") -- Create directory if it doesn't exist
+end
+
 M.setup = function()
   local timer = vim.uv.new_timer()
 
@@ -42,7 +47,7 @@ M.setup = function()
   end
 
   local function git_commit(filename)
-    local repo_path = vim.fn.expand("~/.config/GithubActivityMon")
+    local repo_path = vim.fn.expand("repo_dir")
     os.execute("cd " .. repo_path .. " && git add " .. filename)
     os.execute("cd " .. repo_path .. " && git commit -m 'Auto commit: " .. filename .. "' > /dev/null 2>&1")
     os.execute("cd " .. repo_path .. " && git push origin main > /dev/null 2>&1")
