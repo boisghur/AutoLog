@@ -43,5 +43,5 @@ Plug 'Boisghur/AutoLog'
 
 Once installed, the plugin will automatically commit and push your activity log to a GitHub repository every 30 minutes.
 
-You can configure the plugin's behavior by editing the init.lua or modifying the plugin's settings.
+You can configure the plugin's behavior by editing the ```config.lua``` or modifying the plugin's settings.
 
