@@ -7,29 +7,28 @@ A simple Neovim plugin that tracks your development activity and commits logs to
 ### Set-up:
 You should create a github repository to store your logs. 
 
-The directory where the logs are stored locally on your machine is ```~/.config/GithubActivityMon``` by default, this can be changed to whatever you want by changing ``` repo_dir ``` path variable in init.lua.
+The directory where the logs are stored locally on your machine is ```~/.config/GithubActivityMon``` by default, this can be changed to whatever you want by changing ``` repo_path ``` path variable in config.lua.
 
 Use your preferred plugin manager:
 
 ### With lazy.nvim:
 ```lua
-require('lazy').setup({
-  {
-    "your-username/GithubActivityMon",
-    config = function()
-      require("GithubActivityMon")
-    end
-  }
-})
+return {
+  "Boisghur/AutoLog",
+  config = function()
+    -- Call the setup function of your plugin
+    require("AutoLog.lua.AutoLog").setup()
+  end,
+}
 ```
 
 ### With packer.nvim
 ```nvim
 return require('packer').startup(function()
   use {
-    'your-username/GithubActivityMon',
+    'Boisghur/AutoLog',
     config = function()
-      require('GithubActivityMon')
+      require('AutoLog.lua.AutoLog').setup()
     end
   }
 end)
@@ -37,7 +36,7 @@ end)
 
 ### With vim-plug
 ```vim
-Plug 'your-username/GithubActivityMon'
+Plug 'Boisghur/AutoLog'
 ```
 
 ## Usage
